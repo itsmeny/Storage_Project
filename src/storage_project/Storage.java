@@ -36,7 +36,8 @@ public final class Storage {
             System.out.print("3.) Reset Storage.\n");
             System.out.print("4.) Get Storage Info.\n");
             System.out.print("5.) Get All Storage Info\n");
-            System.out.print("6.) Reset All Storage\n");
+            System.out.print("6.) Get Available Storage\n");
+            System.out.print("7.) Reset All Storage\n");
             System.out.print("0.) Exit Application\n");
             System.out.print("\nEnter Your Menu Choice: ");
 
@@ -138,8 +139,10 @@ public final class Storage {
                     System.out.println("[All Storage Info]");
                     this.getAllStorageInfo();
                     break;
-
                 case 6:
+                    this.getAvailableStorage();
+                    break;
+                case 7:
                     System.out.println("[Reset All Storage]");
                     System.out.print("Admin password (digits):");
                     int admin_password = input.nextInt();
@@ -215,5 +218,15 @@ public final class Storage {
 
     public int getSlots() {
         return slots;
+    }
+
+    public void getAvailableStorage() {
+        System.out.print("Available Storage Number: ");
+        for (int i = 0; i <= Storage_Name.length - 1; i++) {
+            if (Storage_Status[i] == false) {
+                System.out.print(i + 1 + " ");
+            }
+        }
+        System.out.println("");
     }
 }
