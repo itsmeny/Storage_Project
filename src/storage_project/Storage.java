@@ -4,11 +4,8 @@ import java.util.Scanner;
 
 public final class Storage {
 
-    //private final String[] Storage_Name = {"Storage 1", "Storage 2", "Storage 3", "Storage 4", "Storage 5", "Storage 6", "Storage 7", "Storage 8", "Storage 9", "Storage 10"};
     private String[] Storage_Name = {};
-    //private final boolean[] Storage_Status = {false, false, false, false, false, false, false, false, false, false};
     private boolean[] Storage_Status = {};
-    //private final int[] Storage_password = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     private int[] Storage_password = {};
     private int slots = 0;
 
@@ -16,6 +13,9 @@ public final class Storage {
         Scanner input = new Scanner(System.in);
         System.out.print("How many storage: ");
         int amount = input.nextInt();
+        if (amount < 1) {
+            amount = 1;
+        }
         Storage_Name = new String[amount];
         Storage_Status = new boolean[amount];
         Storage_password = new int[amount];
@@ -49,11 +49,16 @@ public final class Storage {
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Number = input.nextInt();
                     input.nextLine();
-                    //boolean temp_rent_status = Storage_Rental.getStorageStatus(Storage_Number);
+                    if (Storage_Number < Storage_Name.length) {
+                        Storage_Number = 1;
+                    } else if (Storage_Number > Storage_Name.length) {
+                        Storage_Number = Storage_Name.length;
+                    }
+
                     if (this.getStorageStatus(Storage_Number) == false) {
-                        System.out.print("Storage Name: ");
+                        System.out.printf("Storage Number #%d Name: ", Storage_Number);
                         String Storage_name = input.nextLine();
-                        System.out.print("Storage Password (digits): ");
+                        System.out.printf("Storage Number #%d Password (digits): ", Storage_Number);
                         int Storage_Password = input.nextInt();
                         this.rentStorage(Storage_Number, Storage_name, Storage_Password);
                         System.out.printf("Storage Number #%d Rent Successfully!\n", Storage_Number);
@@ -67,10 +72,13 @@ public final class Storage {
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Edit = input.nextInt();
                     input.nextLine();
-                    //boolean temp_status = Storage_Rental.getStorageStatus(Storage_Edit);
-                    //int temp_password = Storage_Rental.AdminGetPassword(Storage_Edit);
+                    if (Storage_Edit < Storage_Name.length) {
+                        Storage_Edit = 1;
+                    } else if (Storage_Edit > Storage_Name.length) {
+                        Storage_Edit = Storage_Name.length;
+                    }
                     if (this.getStorageStatus(Storage_Edit) == true) {
-                        System.out.printf("Old Storage Number #%d Password (digits): ", Storage_Edit);
+                        System.out.printf("Storage Number #%d Password (digits): ", Storage_Edit);
                         int Storage_OldPassword = input.nextInt();
                         input.nextLine();
                         if (this.AdminGetPassword(Storage_Edit) == Storage_OldPassword) {
@@ -94,8 +102,11 @@ public final class Storage {
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Reset = input.nextInt();
                     input.nextLine();
-                    //boolean temp_reset_status = Storage_Rental.getStorageStatus(Storage_Reset);
-                    //int temp_reset_password = Storage_Rental.AdminGetPassword(Storage_Reset);
+                    if (Storage_Reset < Storage_Name.length) {
+                        Storage_Reset = 1;
+                    } else if (Storage_Reset > Storage_Name.length) {
+                        Storage_Reset = Storage_Name.length;
+                    }
                     if (this.getStorageStatus(Storage_Reset) == true) {
                         System.out.printf("Storage Number #%d Password (digits): ", Storage_Reset);
                         int Storage_OldPassword = input.nextInt();
