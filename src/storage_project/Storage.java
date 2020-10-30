@@ -14,7 +14,7 @@ public final class Storage {
 
     public Storage() {
         Scanner input = new Scanner(System.in);
-        System.out.println("How many storage: ");
+        System.out.print("How many storage: ");
         int amount = input.nextInt();
         Storage_Name = new String[amount];
         Storage_Status = new boolean[amount];
