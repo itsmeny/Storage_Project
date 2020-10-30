@@ -11,7 +11,6 @@ public final class Storage {
     //private final int[] Storage_password = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     private int[] Storage_password = {};
     private int slots = 0;
-    private int[] test = {};
 
     public Storage() {
         Scanner input = new Scanner(System.in);
