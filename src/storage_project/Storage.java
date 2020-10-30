@@ -49,12 +49,11 @@ public final class Storage {
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Number = input.nextInt();
                     input.nextLine();
-                    if (Storage_Number < Storage_Name.length) {
+                    if (Storage_Number < 1) {
                         Storage_Number = 1;
                     } else if (Storage_Number > Storage_Name.length) {
                         Storage_Number = Storage_Name.length;
                     }
-
                     if (this.getStorageStatus(Storage_Number) == false) {
                         System.out.printf("Storage Number #%d Name: ", Storage_Number);
                         String Storage_name = input.nextLine();
@@ -72,7 +71,7 @@ public final class Storage {
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Edit = input.nextInt();
                     input.nextLine();
-                    if (Storage_Edit < Storage_Name.length) {
+                    if (Storage_Edit < 1) {
                         Storage_Edit = 1;
                     } else if (Storage_Edit > Storage_Name.length) {
                         Storage_Edit = Storage_Name.length;
@@ -102,7 +101,7 @@ public final class Storage {
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Reset = input.nextInt();
                     input.nextLine();
-                    if (Storage_Reset < Storage_Name.length) {
+                    if (Storage_Reset < 1) {
                         Storage_Reset = 1;
                     } else if (Storage_Reset > Storage_Name.length) {
                         Storage_Reset = Storage_Name.length;
@@ -127,6 +126,11 @@ public final class Storage {
                     System.out.println("[Get Storage Info]");
                     System.out.printf("Storage Number (1 - %d):", Storage_Name.length);
                     int Storage_Info = input.nextInt();
+                    if (Storage_Info < 1) {
+                        Storage_Info = 1;
+                    } else if (Storage_Info > Storage_Name.length) {
+                        Storage_Info = Storage_Name.length;
+                    }
                     System.out.println(this.getStorageInfo(Storage_Info));
                     break;
 
