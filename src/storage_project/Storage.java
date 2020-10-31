@@ -2,7 +2,7 @@ package storage_project;
 
 import java.util.Scanner;
 
-public final class Storage {
+public class Storage {
 
     private String[] Storage_Name = {};
     private boolean[] Storage_Status = {};
@@ -46,7 +46,7 @@ public final class Storage {
 
             while (true) {
                 System.out.println("== Storage Rental Application ==");
-                System.out.printf("Storage Slots %d/%d\n\n", this.getSlots(), Storage_Name.length);
+                System.out.printf("Storage Slots %d/%d\n\n", slots, Storage_Name.length);
                 System.out.print("1.) Rent Storage \n");
                 System.out.print("2.) Edit Storage Info\n");
                 System.out.print("3.) Reset Storage.\n");
@@ -238,10 +238,6 @@ public final class Storage {
             }
             System.out.printf("Storage Number #%d {Storage Name: %s, Storage Status: %s}\n", i + 1, Storage_Name[i], Status);
         }
-    }
-
-    public int getSlots() {
-        return slots;
     }
 
     public void getAvailableStorage() {
