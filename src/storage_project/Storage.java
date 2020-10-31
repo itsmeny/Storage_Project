@@ -17,7 +17,7 @@ public final class Storage {
         Scanner input = new Scanner(System.in);
 
         try {
-            System.out.print("How many storage? (digits): ");
+            System.out.print("How many storage? (digits only): ");
             int amount = input.nextInt();
             if (amount < 1) {
                 amount = 1;
@@ -74,7 +74,7 @@ public final class Storage {
                         if (this.getStorageStatus(Storage_Number) == false) {
                             System.out.printf("Storage Number #%d Name: ", Storage_Number);
                             String Storage_name = input.nextLine();
-                            System.out.printf("Storage Number #%d Password (digits): ", Storage_Number);
+                            System.out.printf("Storage Number #%d Password (digits only): ", Storage_Number);
                             int Storage_Password = input.nextInt();
                             this.rentStorage(Storage_Number, Storage_name, Storage_Password);
                             System.out.printf("Storage Number #%d Rent Successfully!\n", Storage_Number);
@@ -94,13 +94,13 @@ public final class Storage {
                             Storage_Edit = Storage_Name.length;
                         }
                         if (this.getStorageStatus(Storage_Edit) == true) {
-                            System.out.printf("Storage Number #%d Password (digits): ", Storage_Edit);
+                            System.out.printf("Storage Number #%d Password (digits only): ", Storage_Edit);
                             int Storage_OldPassword = input.nextInt();
                             input.nextLine();
                             if (this.AdminGetPassword(Storage_Edit) == Storage_OldPassword) {
                                 System.out.printf("New Storage Number #%d Name: ", Storage_Edit);
                                 String Storage_EditName = input.nextLine();
-                                System.out.printf("New Storage Number #%d Password (digits): ", Storage_Edit);
+                                System.out.printf("New Storage Number #%d Password (digits only): ", Storage_Edit);
                                 int Storage_EditPassword = input.nextInt();
                                 this.editStorageInfo(Storage_Edit, Storage_EditName, Storage_EditPassword);
                                 System.out.printf("Storage Number #%d Edit Info Successfully!\n", Storage_Edit);
@@ -124,7 +124,7 @@ public final class Storage {
                             Storage_Reset = Storage_Name.length;
                         }
                         if (this.getStorageStatus(Storage_Reset) == true) {
-                            System.out.printf("Storage Number #%d Password (digits): ", Storage_Reset);
+                            System.out.printf("Storage Number #%d Password (digits only): ", Storage_Reset);
                             int Storage_OldPassword = input.nextInt();
                             input.nextLine();
                             if (this.AdminGetPassword(Storage_Reset) == Storage_OldPassword) {
@@ -162,7 +162,7 @@ public final class Storage {
 
                     case 7:
                         System.out.println("[Reset All Storage]");
-                        System.out.print("Admin password (digits):");
+                        System.out.print("Admin password (digits only):");
                         int admin_password = input.nextInt();
                         input.nextLine();
                         if (admin_password == 6969) {
