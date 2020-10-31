@@ -100,7 +100,7 @@ public final class Storage {
                             if (this.AdminGetPassword(Storage_Edit) == Storage_OldPassword) {
                                 System.out.printf("New Storage Number #%d Name: ", Storage_Edit);
                                 String Storage_EditName = input.nextLine();
-                                System.out.printf("New Storage Number #%d Password (digits only): ", Storage_Edit);
+                                System.out.printf("New Storage Number #%d Password (number only): ", Storage_Edit);
                                 int Storage_EditPassword = input.nextInt();
                                 this.editStorageInfo(Storage_Edit, Storage_EditName, Storage_EditPassword);
                                 System.out.printf("Storage Number #%d Edit Info Successfully!\n", Storage_Edit);
