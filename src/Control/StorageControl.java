@@ -1,4 +1,4 @@
-package storage_project;
+package Control;
 
 public class StorageControl {
 

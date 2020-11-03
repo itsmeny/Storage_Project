@@ -5,14 +5,14 @@ package storage_project;
 
 import java.util.Scanner;
 
-public class Storage {
+public class Storage_Old {
 
     private String[] Storage_Name = {};
     private boolean[] Storage_Status = {};
     private int[] Storage_password = {};
     private int slots = 0;
 
-    public Storage() {
+    public Storage_Old() {
         HowManyStorage();
     }
 
