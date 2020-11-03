@@ -23,7 +23,7 @@ public class StorageApp {
             for (int i = 0; i <= amount - 1; i++) {
                 this.StorageApp.setStorage();
             }
-            Storage_App(); //<== NullPointer
+            Storage_App();
         } catch (Exception e) {
             System.out.println("Wrong input!");
             input.reset();
