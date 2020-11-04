@@ -162,8 +162,24 @@ public class StorageApp {
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
                         int showItems = input.nextInt();
                         input.nextLine();
-                        System.out.printf("Items in Storage Number #%d = ", showItems);
-                        StorageApp.showStorageItems(showItems);
+                        if (showItems < 1) {
+                            showItems = 1;
+                        } else if (showItems > StorageApp.getAllSlots()) {
+                            showItems = StorageApp.getAllSlots();
+                        }
+                        if (StorageApp.getStorageStatus(showItems) == true) {
+                            System.out.printf("Storage Number #%d Password (number only): ", showItems);
+                            int Storage_OldPassword = input.nextInt();
+                            input.nextLine();
+                            if (StorageApp.getPassword(showItems) == Storage_OldPassword) {
+                                System.out.printf("Items in Storage Number #%d = ", showItems);
+                                StorageApp.showStorageItems(showItems);
+                            } else {
+                                System.out.printf("Wrong Password for Storage Number #%d!\n", showItems);
+                            }
+                        } else {
+                            System.out.printf("Storage Number #%d is still available!\n", showItems);
+                        }
                         break;
 
                     case 8:
@@ -172,6 +188,11 @@ public class StorageApp {
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
                         int add_Items = input.nextInt();
                         input.nextLine();
+                        if (add_Items < 1) {
+                            add_Items = 1;
+                        } else if (add_Items > StorageApp.getAllSlots()) {
+                            add_Items = StorageApp.getAllSlots();
+                        }
                         if (StorageApp.getStorageStatus(add_Items) == true) {
                             System.out.printf("Storage Number #%d Password (number only): ", add_Items);
                             int Storage_OldPassword = input.nextInt();
@@ -207,6 +228,11 @@ public class StorageApp {
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
                         int rm_Items = input.nextInt();
                         input.nextLine();
+                        if (rm_Items < 1) {
+                            rm_Items = 1;
+                        } else if (rm_Items > StorageApp.getAllSlots()) {
+                            rm_Items = StorageApp.getAllSlots();
+                        }
                         if (StorageApp.getStorageStatus(rm_Items) == true) {
                             System.out.printf("Storage Number #%d Password (number only): ", rm_Items);
                             int Storage_OldPassword = input.nextInt();
