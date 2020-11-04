@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/storage_project/Storage_Project.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>8</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/C0MPUT3R/Desktop/Storage_Project/Storage_Project/src/Control/StorageControl.java</file>
             <file>file:/C:/Users/C0MPUT3R/Desktop/Storage_Project/Storage_Project/src/Control/StorageApp.java</file>
             <file>file:/C:/Users/C0MPUT3R/Desktop/Storage_Project/Storage_Project/src/Control/StorageData.java</file>
             <file>file:/C:/Users/C0MPUT3R/Desktop/Storage_Project/Storage_Project/src/storage_project/Storage_Project.java</file>
+=======
+            <file>file:/C:/Users/min/Desktop/Project/Storage_Project/src/Control/StorageControl.java</file>
+            <file>file:/C:/Users/min/Desktop/Project/Storage_Project/src/storage_project/Storage_Project.java</file>
+            <file>file:/C:/Users/min/Desktop/Project/Storage_Project/src/Control/StorageApp.java</file>
+>>>>>>> f66a5737fb62aca6573ced6b3b8a80e613d1493e
         </group>
     </open-files>
 </project-private>
