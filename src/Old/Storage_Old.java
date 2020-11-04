@@ -1,7 +1,7 @@
 /*
 OLD Storage_Project!!!
  */
-package storage_project;
+package Old;
 
 import java.util.Scanner;
 

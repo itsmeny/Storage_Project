@@ -241,6 +241,9 @@ public class StorageApp {
                                 System.out.print("Items to remove: ");
                                 String ItemsToRemove = input.nextLine();
                                 for (int j = 10; j > 0; j--) {
+                                    if (ItemsToRemove.equals("exit")) {
+                                        Storage_App();
+                                    }
                                     if (StorageApp.showSelectItems(rm_Items, j) == null ? (ItemsToRemove) == null : StorageApp.showSelectItems(rm_Items, j).equals(ItemsToRemove)) {
                                         rm_pos = j;
                                     }
