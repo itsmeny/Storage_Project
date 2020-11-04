@@ -24,6 +24,12 @@ public class StorageControl {
         this.slots--;
     }
 
+    public void resetItems(int number) {
+        for (int i = 0; i <= 9; i++) {
+            StorageData[number - 1].setItems(i, null);
+        }
+    }
+
     public void setStorage() {
         for (int i = 0; i <= StorageData.length - 1; i++) {
             int num = i + 1;
