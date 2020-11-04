@@ -19,6 +19,10 @@ public class StorageControl {
         StorageData[number - 1] = new StorageData(new_name, new_password, true);
     }
 
+    public int getCount(int number) {
+        return StorageData[number - 1].getCount();
+    }
+
     public void resetStorage(int number) {
         StorageData[number - 1] = new StorageData("Storage " + number, 0, false);
         this.slots--;

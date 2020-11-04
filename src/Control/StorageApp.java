@@ -3,16 +3,16 @@ package Control;
 import java.util.Scanner;
 
 public class StorageApp {
-    
+
     StorageControl StorageApp = new StorageControl(0);
-    
+
     public StorageApp() {
         HowManyStorage();
     }
-    
+
     public void HowManyStorage() {
         Scanner input = new Scanner(System.in);
-        
+
         try {
             System.out.print("How many storage? (number only): ");
             int amount = input.nextInt();
@@ -31,12 +31,12 @@ public class StorageApp {
             HowManyStorage();
         }
     }
-    
+
     public void Storage_App() {
-        
+
         Scanner input = new Scanner(System.in);
         try {
-            
+
             while (true) {
                 System.out.println("== Storage Rental Application ==");
                 System.out.printf("Storage Slots %d/%d\n\n", StorageApp.getSlots(), StorageApp.getAllSlots());
@@ -52,11 +52,11 @@ public class StorageApp {
                 System.out.print("10.) Reset All Storage.\n");
                 System.out.print("0.) Exit Application.\n");
                 System.out.print("\nEnter Your Menu Choice: ");
-                
+
                 int select_menu = input.nextInt();
-                
+
                 switch (select_menu) {
-                    
+
                     case 1:
                         System.out.println("[Rent Storage]");
                         System.out.printf("Storage Number (1 - %d): ", StorageApp.getAllSlots());
@@ -78,7 +78,7 @@ public class StorageApp {
                             System.out.printf("Storage Number #%d is unavailable!\n", Storage_Number);
                         }
                         break;
-                    
+
                     case 2:
                         System.out.println("[Edit Storage]");
                         System.out.printf("Storage Number (1 - %d): ", StorageApp.getAllSlots());
@@ -103,12 +103,12 @@ public class StorageApp {
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", Storage_Edit);
                             }
-                            
+
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", Storage_Edit);
                         }
                         break;
-                    
+
                     case 3:
                         System.out.println("[Reset Storage]");
                         System.out.printf("Storage Number (1 - %d): ", StorageApp.getAllSlots());
@@ -130,12 +130,12 @@ public class StorageApp {
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", Storage_Reset);
                             }
-                            
+
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", Storage_Reset);
                         }
                         break;
-                    
+
                     case 4:
                         System.out.println("[Get Storage Info]");
                         System.out.printf("Storage Number (1 - %d): ", StorageApp.getAllSlots());
@@ -147,16 +147,16 @@ public class StorageApp {
                         }
                         StorageApp.getStorageInfo(Storage_Info);
                         break;
-                    
+
                     case 5:
                         System.out.println("[All Storage Info]");
                         StorageApp.getAllStorageInfo();
                         break;
-                    
+
                     case 6:
                         StorageApp.getAllAvailableStorage();
                         break;
-                    
+
                     case 7:
                         System.out.println("[Show Storage Items]");
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
@@ -165,7 +165,7 @@ public class StorageApp {
                         System.out.printf("Items in Storage Number #%d = ", showItems);
                         StorageApp.showStorageItems(showItems);
                         break;
-                    
+
                     case 8:
                         int add_pos = 0;
                         System.out.println("[Add Storage Items]");
@@ -177,27 +177,30 @@ public class StorageApp {
                             int Storage_OldPassword = input.nextInt();
                             input.nextLine();
                             if (StorageApp.getPassword(add_Items) == Storage_OldPassword) {
-                                System.out.print("Items to add: ");
-                                String ItemsToAdd = input.nextLine();
-                                for (int i = 10; i > 0; i--) {
-                                    if (ItemsToAdd.equals("exit")) {
-                                        Storage_App();
+                                if (StorageApp.getCount(add_Items) < 10) {
+                                    System.out.print("Items to add: ");
+                                    String ItemsToAdd = input.nextLine();
+                                    for (int i = 10; i > 0; i--) {
+                                        if (ItemsToAdd.equals("exit")) {
+                                            Storage_App();
+                                        }
+                                        if (StorageApp.showSelectItems(add_Items, i) == null) {
+                                            add_pos = i;
+                                        }
                                     }
-                                    if (StorageApp.showSelectItems(add_Items, i) == null) {
-                                        add_pos = i;
-                                    }
+                                    StorageApp.addStorageItems(add_Items, add_pos, ItemsToAdd);
+                                    System.out.printf("Add %s into Storage Number #%d Successfully!\n", ItemsToAdd, add_Items);
+                                } else {
+                                    System.out.printf("Storage Number #%d Full", add_Items);
                                 }
-                                StorageApp.addStorageItems(add_Items, add_pos, ItemsToAdd);
-                                System.out.printf("Add %s into Storage Number #%d Successfully!\n", ItemsToAdd, add_Items);
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", add_Items);
                             }
-                            
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", add_Items);
                         }
                         break;
-                    
+
                     case 9:
                         int rm_pos = 0;
                         System.out.println("[Remove Storage Items]");
@@ -221,12 +224,12 @@ public class StorageApp {
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", rm_Items);
                             }
-                            
+
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", rm_Items);
                         }
                         break;
-                    
+
                     case 10:
                         System.out.println("[Reset All Storage]");
                         System.out.print("Admin password (number only): ");
@@ -243,10 +246,10 @@ public class StorageApp {
                             System.out.println("Wrong password for Reset All Storage!");
                         }
                         break;
-                    
+
                     case 0:
                         System.exit(0);
-                    
+
                     default:
                         break;
                 }

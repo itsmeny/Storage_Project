@@ -8,6 +8,7 @@ public class StorageData {
     private int StoragePassword;
     private boolean StorageStatus;
     private String[] StorageItems = {null, null, null, null, null, null, null, null, null, null};
+    private int itemsCount = 0;
 
     public StorageData(String name, int password, boolean stat) {
         this.StorageName = name;
@@ -28,13 +29,15 @@ public class StorageData {
     }
 
     public void setItems(int number, String items) {
+        itemsCount++;
         this.StorageItems[number] = items;
     }
 
     public void removeItems(int number) {
+        itemsCount--;
         this.StorageItems[number] = null;
     }
-  
+
     public String getStorageItems(int number) {
         return this.StorageItems[number - 1];
     }
@@ -55,4 +58,7 @@ public class StorageData {
         return this.StorageStatus;
     }
 
+    public int getCount() {
+        return this.itemsCount;
+    }
 }
