@@ -162,8 +162,24 @@ public class StorageApp {
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
                         int showItems = input.nextInt();
                         input.nextLine();
-                        System.out.printf("Items in Storage Number #%d = ", showItems);
-                        StorageApp.showStorageItems(showItems);
+                        if (showItems < 1) {
+                            showItems = 1;
+                        } else if (showItems > StorageApp.getAllSlots()) {
+                            showItems = StorageApp.getAllSlots();
+                        }
+                        if (StorageApp.getStorageStatus(showItems) == true) {
+                            System.out.printf("Storage Number #%d Password (number only): ", showItems);
+                            int Storage_OldPassword = input.nextInt();
+                            input.nextLine();
+                            if (StorageApp.getPassword(showItems) == Storage_OldPassword) {
+                                System.out.printf("Items in Storage Number #%d = ", showItems);
+                                StorageApp.showStorageItems(showItems);
+                            } else {
+                                System.out.printf("Wrong Password for Storage Number #%d!\n", showItems);
+                            }
+                        } else {
+                            System.out.printf("Storage Number #%d is still available!\n", showItems);
+                        }
                         break;
 
                     case 8:
@@ -172,13 +188,18 @@ public class StorageApp {
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
                         int add_Items = input.nextInt();
                         input.nextLine();
+                        if (add_Items < 1) {
+                            add_Items = 1;
+                        } else if (add_Items > StorageApp.getAllSlots()) {
+                            add_Items = StorageApp.getAllSlots();
+                        }
                         if (StorageApp.getStorageStatus(add_Items) == true) {
                             System.out.printf("Storage Number #%d Password (number only): ", add_Items);
                             int Storage_OldPassword = input.nextInt();
                             input.nextLine();
                             if (StorageApp.getPassword(add_Items) == Storage_OldPassword) {
                                 if (StorageApp.getCount(add_Items) < 10) {
-                                    System.out.print("Items to add: ");
+                                    System.out.print("Items to add (type 'exit' to exit): ");
                                     String ItemsToAdd = input.nextLine();
                                     for (int i = 10; i > 0; i--) {
                                         if (ItemsToAdd.equals("exit")) {
@@ -203,28 +224,46 @@ public class StorageApp {
 
                     case 9:
                         int rm_pos = 0;
+                        boolean item_not_found = false;
                         System.out.println("[Remove Storage Items]");
                         System.out.printf("Storage Number (1-%d): ", StorageApp.getAllSlots());
                         int rm_Items = input.nextInt();
                         input.nextLine();
+                        if (rm_Items < 1) {
+                            rm_Items = 1;
+                        } else if (rm_Items > StorageApp.getAllSlots()) {
+                            rm_Items = StorageApp.getAllSlots();
+                        }
                         if (StorageApp.getStorageStatus(rm_Items) == true) {
                             System.out.printf("Storage Number #%d Password (number only): ", rm_Items);
                             int Storage_OldPassword = input.nextInt();
                             input.nextLine();
                             if (StorageApp.getPassword(rm_Items) == Storage_OldPassword) {
-                                System.out.print("Items to remove: ");
+                                System.out.print("Items to remove (type 'exit' to exit): ");
                                 String ItemsToRemove = input.nextLine();
-                                for (int j = 10; j > 0; j--) {
-                                    if (StorageApp.showSelectItems(rm_Items, j) == null ? (ItemsToRemove) == null : StorageApp.showSelectItems(rm_Items, j).equals(ItemsToRemove)) {
-                                        rm_pos = j;
+                                for (int x = 10; x > 0; x--) {
+                                    if (StorageApp.showSelectItems(rm_Items, x) == null ? ItemsToRemove == null : StorageApp.showSelectItems(rm_Items, x).equals(ItemsToRemove)) {
+                                        for (int j = 10; j > 0; j--) {
+                                            if (ItemsToRemove.equals("exit")) {
+                                                Storage_App();
+                                            }
+                                            if (StorageApp.showSelectItems(rm_Items, j) == null ? (ItemsToRemove) == null : StorageApp.showSelectItems(rm_Items, j).equals(ItemsToRemove)) {
+                                                rm_pos = j;
+                                                item_not_found = false;
+                                            }
+                                        }
+                                        StorageApp.removeStorageItems(rm_Items, rm_pos);
+                                        System.out.printf("Remove %s from Storage Number #%d Successfully!\n", ItemsToRemove, rm_Items);
+                                    } else {
+                                        item_not_found = true;
                                     }
                                 }
-                                StorageApp.removeStorageItems(rm_Items, rm_pos);
-                                System.out.printf("Remove %s from Storage Number #%d Successfully!\n", ItemsToRemove, rm_Items);
+                                if (item_not_found == true) {
+                                    System.out.printf("Items '%s' not found in Storage Number #%d\n", ItemsToRemove, rm_Items);
+                                }
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", rm_Items);
                             }
-
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", rm_Items);
                         }
