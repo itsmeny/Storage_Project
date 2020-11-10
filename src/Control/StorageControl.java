@@ -110,4 +110,8 @@ public class StorageControl {
             System.out.printf("Storage Number #%d {Storage Name: %s, Storage Status: %s}\n", i + 1, StorageData[i].getStorageName(), Status);
         }
     }
+
+    public int getItemsLength(int number) {
+        return StorageData[number - 1].getItemsLength();
+    }
 }

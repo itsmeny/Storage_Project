@@ -61,4 +61,8 @@ public class StorageData {
     public int getCount() {
         return this.itemsCount;
     }
+
+    public int getItemsLength() {
+        return this.StorageItems.length;
+    }
 }
