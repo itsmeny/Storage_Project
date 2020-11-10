@@ -103,7 +103,6 @@ public class StorageApp {
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", Storage_Edit);
                             }
-
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", Storage_Edit);
                         }
@@ -130,7 +129,6 @@ public class StorageApp {
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", Storage_Reset);
                             }
-
                         } else {
                             System.out.printf("Storage Number #%d is still available!\n", Storage_Reset);
                         }
@@ -249,7 +247,6 @@ public class StorageApp {
                                             rm_pos = x;
                                             StorageApp.removeStorageItems(rm_Items, rm_pos);
                                             System.out.printf("Remove '%s' from Storage Number #%d Successfully!\n", ItemsToRemove, rm_Items);
-
                                         }
                                     }
                                 }
