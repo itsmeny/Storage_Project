@@ -199,20 +199,21 @@ public class StorageApp {
                             input.nextLine();
                             if (StorageApp.getPassword(add_Items) == Storage_OldPassword) {
                                 if (StorageApp.getCount(add_Items) < 10) {
-                                    System.out.print("Items to add (type 'exit' to exit): ");
-                                    String ItemsToAdd = input.nextLine();
                                     for (int i = 10; i > 0; i--) {
-                                        if (ItemsToAdd.equals("exit")) {
-                                            Storage_App();
-                                        }
-                                        if (StorageApp.showSelectItems(add_Items, i) == null) {
+                                        if (StorageApp.showSelectItems(add_Items, i) == null == true) {
                                             add_pos = i;
+                                            System.out.print("Items to add (type 'exit' to exit): ");
+                                            String ItemsToAdd = input.nextLine();
+                                            if (ItemsToAdd.equals("exit")) {
+                                                Storage_App();
+                                            } else {
+                                                StorageApp.addStorageItems(add_Items, add_pos, ItemsToAdd);
+                                                System.out.printf("Add %s into Storage Number #%d Successfully!\n", ItemsToAdd, add_Items);
+                                            }
                                         }
                                     }
-                                    StorageApp.addStorageItems(add_Items, add_pos, ItemsToAdd);
-                                    System.out.printf("Add %s into Storage Number #%d Successfully!\n", ItemsToAdd, add_Items);
                                 } else {
-                                    System.out.printf("Storage Number #%d Full", add_Items);
+                                    System.out.printf("Storage Number #%d Full\n", add_Items);
                                 }
                             } else {
                                 System.out.printf("Wrong Password for Storage Number #%d!\n", add_Items);
