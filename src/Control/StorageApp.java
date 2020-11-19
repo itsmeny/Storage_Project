@@ -143,16 +143,15 @@ public class StorageApp {
                         } else if (Storage_Info > StorageApp.getAllSlots()) {
                             Storage_Info = StorageApp.getAllSlots();
                         }
-                        StorageApp.getStorageInfo(Storage_Info);
+                        System.out.println(StorageApp.getStorageInfo(Storage_Info));
                         break;
 
                     case 5:
-                        System.out.println("[All Storage Info]");
-                        StorageApp.getAllStorageInfo();
+                        System.out.println("[All Storage Info]\n" + StorageApp.getAllStorageInfo());
                         break;
 
                     case 6:
-                        StorageApp.getAllAvailableStorage();
+                        System.out.print("All Available Storage Number: " + StorageApp.getAllAvailableStorage() + "\n");
                         break;
 
                     case 7:

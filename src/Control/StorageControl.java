@@ -63,14 +63,14 @@ public class StorageControl {
         return StorageData[number - 1].getStoragePassword();
     }
 
-    public void getStorageInfo(int number) {
+    public String getStorageInfo(int number) {
         String Status;
         if (StorageData[number - 1].getStorageStatus() == true) {
             Status = "unavailable";
         } else {
             Status = "available";
         }
-        System.out.printf("Storage Number #%d {Storage Name: %s, Storage Status: %s}\n", number, StorageData[number - 1].getStorageName(), Status);
+        return String.format("Storage Number #%d {Storage Name: %s, Storage Status: %s}\n", number, StorageData[number - 1].getStorageName(), Status);
     }
 
     public void addStorageItems(int StorageNumber, int ItemsNumber, String items) {
@@ -89,26 +89,28 @@ public class StorageControl {
         return StorageData[number - 1].getStorageItems(itemsNumber);
     }
 
-    public void getAllAvailableStorage() {
-        System.out.print("All Available Storage Number: ");
+    public String getAllAvailableStorage() {
+        String Storage_Number = "";
         for (int i = 0; i <= StorageData.length - 1; i++) {
             if (StorageData[i].getStorageStatus() == false) {
-                System.out.print(i + 1 + " ");
+                Storage_Number += (i + 1 + " ");
             }
         }
-        System.out.println("");
+        return Storage_Number;
     }
 
-    public void getAllStorageInfo() {
+    public String getAllStorageInfo() {
         String Status;
+        String Storage_Info = "";
         for (int i = 0; i <= StorageData.length - 1; i++) {
             if (StorageData[i].getStorageStatus() == true) {
                 Status = "unavailable";
             } else {
                 Status = "available";
             }
-            System.out.printf("Storage Number #%d {Storage Name: %s, Storage Status: %s}\n", i + 1, StorageData[i].getStorageName(), Status);
+            Storage_Info += String.format("Storage Number #%d {Storage Name: %s, Storage Status: %s}\n", i + 1, StorageData[i].getStorageName(), Status);
         }
+        return Storage_Info;
     }
 
     public int getItemsLength(int number) {
