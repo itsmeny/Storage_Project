@@ -282,7 +282,6 @@ public class StorageApp {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
             System.out.println("Wrong input!");
             input.reset();
             input.next();
