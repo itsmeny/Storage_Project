@@ -7,10 +7,11 @@ public class StorageData {
     private String StorageName;
     private int StoragePassword;
     private boolean StorageStatus;
-    private String[] StorageItems = {null, null, null, null, null, null, null, null, null, null};
+    private String[] StorageItems;
     private int itemsCount = 0;
 
     public StorageData(String name, int password, boolean stat) {
+        this.StorageItems = new String[10];
         this.StorageName = name;
         this.StoragePassword = password;
         this.StorageStatus = stat;
@@ -60,5 +61,9 @@ public class StorageData {
 
     public int getCount() {
         return this.itemsCount;
+    }
+
+    public int getItemsLength() {
+        return this.StorageItems.length;
     }
 }
