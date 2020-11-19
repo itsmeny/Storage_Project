@@ -25,7 +25,7 @@ public class StorageApp {
             }
             Storage_App();
         } catch (Exception e) {
-            System.out.println("Wrong input!");
+            System.out.println("Wrong input!\n");
             input.reset();
             input.next();
             HowManyStorage();
@@ -282,7 +282,7 @@ public class StorageApp {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Wrong input!");
+            System.out.println("Wrong input!\n");
             input.reset();
             input.next();
             Storage_App();
