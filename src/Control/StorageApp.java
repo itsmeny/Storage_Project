@@ -6,10 +6,16 @@ public class StorageApp {
 
     StorageControl StorageApp = new StorageControl(0);
 
+    /**
+     * Storage App.
+     */
     public StorageApp() {
         HowManyStorage();
     }
 
+    /**
+     * How many storage that you want.
+     */
     public void HowManyStorage() {
         Scanner input = new Scanner(System.in);
 
@@ -32,6 +38,9 @@ public class StorageApp {
         }
     }
 
+    /**
+     * Menu of Storage App.
+     */
     public void Storage_App() {
 
         Scanner input = new Scanner(System.in);
