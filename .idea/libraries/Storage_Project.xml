@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Storage_Project">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/Storage_Project.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
